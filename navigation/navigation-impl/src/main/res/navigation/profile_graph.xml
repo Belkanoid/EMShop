@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/profile_graph"
+    app:startDestination="@id/profileFragment">
+
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.belkanoid.profile.presentation.profile.ProfileFragment"
+        android:label="@string/profile"
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_profileFragment_to_favoriteFragment"
+            app:destination="@id/favoriteFragment"
+            app:popUpTo="@id/profileFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/favoriteFragment"
+        android:name="com.belkanoid.profile.presentation.favorite.FavoriteFragment"
+        android:label="@string/favorite"
+        tools:layout="@layout/fragment_favorite" >
+        <action
+            android:id="@+id/action_favoriteFragment_to_catalogItemDetailedFragment2"
+            app:destination="@id/catalogItemDetailedFragment2"
+            app:popUpTo="@id/favoriteFragment"
+            app:popUpToInclusive="false" />
+    </fragment>
+    <fragment
+        android:id="@+id/catalogItemDetailedFragment2"
+        android:name="com.belkanoid.catalog.presentation.catalogItemDetailed.CatalogItemDetailedFragment"
+        android:label=""
+        tools:layout="@layout/fragment_catalog_detailed" >
+        <argument
+            android:name="product"
+            app:argType="com.belkanoid.product.Product" />
+    </fragment>
+
+
+</navigation>

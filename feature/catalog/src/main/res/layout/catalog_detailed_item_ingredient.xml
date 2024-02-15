@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_marginBottom="@dimen/medium">
+
+    <TextView
+        android:text="Состав"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/TextMedium16"
+        android:drawableRight="@drawable/copy_default"/>
+
+    <TextView
+        android:id="@+id/detailed_ingredient_tv_text"
+        tools:text="Water, Propylene Glycol, Dipropylene Glycol, Lauric acid, Myristic Acid, Potassium Hydroxide, Lauryl Hydroxysultaine, Potassium Cocoate, Potassium Cocoyl Glycinate, Sodium Chloride, Glycerin, Phenoxyethanol, Chlorphenesin, Fragrance, Caprylyl Glycol, Ethylhexylglycerin, Capric acid, Palmitic Acid, Disodium EDTA, Sodium Bicarbonate, Cocamidopropyl Betaine, Butylene Glycol."
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:maxLines="2"
+        android:layout_marginTop="@dimen/medium"
+        android:ellipsize="end"
+        style="@style/TextRegular12"
+        android:textColor="@color/dark_grey"/>
+
+    <TextView
+        android:id="@+id/detailed_ingredient_tv_toggle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/extra_small"
+        style="@style/TextMedium12"
+        android:textColor="@color/grey"
+        android:text="Скрыть" />
+
+</LinearLayout>

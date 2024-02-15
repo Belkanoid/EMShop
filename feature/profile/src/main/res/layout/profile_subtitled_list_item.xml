@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/rounded_background_medium">
+
+    <ImageView
+        android:id="@+id/profileItem_img"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginHorizontal="@dimen/medium"
+        android:layout_marginVertical="@dimen/extra_medium"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@drawable/heart_default" />
+
+    <LinearLayout
+        android:id="@+id/item_text_holder"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:layout_marginVertical="@dimen/small"
+        android:gravity="center_vertical|start"
+        android:weightSum="2"
+        android:layout_marginHorizontal="@dimen/extra_medium"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/profileItem_img_arrow_right"
+        app:layout_constraintStart_toEndOf="@+id/profileItem_img"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/profileItem_tv_tittle"
+            style="@style/TextMedium16"
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/extra_medium"
+            tools:text="Избранное" />
+
+        <TextView
+            android:id="@+id/profileItem_tv_subtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            style="@style/TextRegular14"
+            android:textColor="@color/grey"
+            tools:text="1 товар" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/profileItem_img_arrow_right"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginEnd="@dimen/medium"
+        app:layout_constraintBottom_toBottomOf="@+id/profileItem_img"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/profileItem_img"
+        app:srcCompat="@drawable/right_arrow_default" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

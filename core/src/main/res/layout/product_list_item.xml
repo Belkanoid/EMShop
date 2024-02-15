@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/rounded_stroke_medium"
+    android:paddingTop="@dimen/small">
+
+
+    <FrameLayout
+        android:id="@+id/view_pager_holder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginHorizontal="@dimen/small"
+        app:layout_constraintTop_toTopOf="parent"
+        >
+
+
+        <ImageView
+            android:id="@+id/product_img_heart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|end"
+            android:paddingTop="@dimen/small"
+            android:paddingEnd="@dimen/small"
+            tools:src="@drawable/heart_default"
+            android:translationZ="100dp"/>
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/product_vp_image"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/light_pink"
+            android:layout_marginBottom="@dimen/medium"
+            android:overScrollMode="never"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/product_vp_tab"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:background="@android:color/transparent"
+            app:layout_constraintEnd_toEndOf="@+id/product_vp_image"
+            app:layout_constraintStart_toStartOf="@+id/product_vp_image"
+            app:layout_constraintTop_toBottomOf="@id/product_vp_image"
+            app:tabBackground="@drawable/tab_selector"
+            app:tabGravity="center"
+            app:tabPaddingEnd="0dp"
+            app:tabIndicatorHeight="0dp"/>
+    </FrameLayout>
+
+
+    <com.belkanoid.core.ui.customView.ObliqueStrikeTextView
+        android:id="@+id/product_tv_price"
+        style="@style/TextRegular12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="899 ₽"
+        android:textColor="@color/grey"
+        app:layout_constraintStart_toStartOf="@+id/view_pager_holder"
+        app:layout_constraintTop_toBottomOf="@+id/view_pager_holder" />
+
+    <TextView
+        android:id="@+id/product_tv_price_with_discount"
+        style="@style/TextMedium16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="549 ₽"
+        app:layout_constraintStart_toStartOf="@+id/product_tv_price"
+        app:layout_constraintTop_toBottomOf="@+id/product_tv_price" />
+
+    <TextView
+        android:id="@+id/product_tv_discount"
+        style="@style/TextViewBackgrounded"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginStart="@dimen/small"
+        android:gravity="center_vertical|center_horizontal"
+        android:text="-39%"
+        app:layout_constraintBottom_toBottomOf="@+id/product_tv_price_with_discount"
+        app:layout_constraintStart_toEndOf="@+id/product_tv_price_with_discount"
+        app:layout_constraintTop_toTopOf="@+id/product_tv_price_with_discount" />
+
+    <TextView
+        android:id="@+id/product_tv_tittle"
+        style="@style/TextMedium16"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/extra_small"
+        android:maxLines="1"
+        android:text="A`PIEU"
+        app:layout_constraintEnd_toEndOf="@+id/view_pager_holder"
+        app:layout_constraintStart_toStartOf="@+id/product_tv_price_with_discount"
+        app:layout_constraintTop_toBottomOf="@+id/product_tv_price_with_discount" />
+
+
+    <TextView
+        android:id="@+id/product_tv_subtitle"
+        style="@style/TextRegular14"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/extra_small"
+        android:text="Пенка для умывания `A`PIEU` `DEEP CLEAN` 200 мл"
+        android:textColor="@color/dark_grey"
+        app:layout_constraintEnd_toEndOf="@id/product_tv_tittle"
+        app:layout_constraintStart_toStartOf="@+id/product_tv_tittle"
+        app:layout_constraintTop_toBottomOf="@+id/product_tv_tittle" />
+
+    <ImageView
+        android:id="@+id/product_img_star"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:src="@drawable/small_star_default"
+        android:layout_marginTop="@dimen/medium"
+        app:layout_constraintBottom_toTopOf="@+id/product_img_add"
+        app:layout_constraintStart_toStartOf="@+id/product_tv_subtitle"
+        app:layout_constraintTop_toBottomOf="@+id/product_tv_subtitle"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/product_tv_rating"
+        style="@style/TextMedium14"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:text="4.3"
+        android:textColor="@color/orange"
+        android:gravity="center_horizontal|center_vertical"
+        app:layout_constraintBottom_toBottomOf="@+id/product_img_star"
+        app:layout_constraintStart_toEndOf="@+id/product_img_star"
+        app:layout_constraintTop_toTopOf="@+id/product_img_star" />
+
+    <TextView
+        android:id="@+id/product_tv_surveys"
+        style="@style/TextRegular14"
+        android:textColor="@color/grey"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginStart="@dimen/extra_small"
+        android:text="(4)"
+        android:gravity="center_horizontal|center_vertical"
+        app:layout_constraintBottom_toBottomOf="@+id/product_tv_rating"
+        app:layout_constraintStart_toEndOf="@+id/product_tv_rating"
+        app:layout_constraintTop_toTopOf="@+id/product_tv_rating" />
+
+    <ImageView
+        android:id="@+id/product_img_add"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@drawable/catalog_add_button_default"
+        android:src="@drawable/plus_default"
+        android:clickable="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

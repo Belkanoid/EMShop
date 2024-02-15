@@ -1,0 +1,9 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <string-array name="filter_arrays" tools:ignore="ExtraTranslation">
+        <item>По популярности</item>
+        <item>По уменьшению цены</item>
+        <item>По возрастанию цены</item>
+    </string-array>
+    
+</resources>

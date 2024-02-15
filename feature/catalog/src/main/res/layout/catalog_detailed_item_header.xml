@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:paddingBottom="@dimen/medium"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageView
+        android:id="@+id/detailed_img_star5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:src="@drawable/small_star_half"
+        app:layout_constraintBottom_toBottomOf="@+id/detailed_img_star4"
+        app:layout_constraintStart_toEndOf="@+id/detailed_img_star4"
+        app:layout_constraintTop_toTopOf="@+id/detailed_img_star4" />
+
+    <ImageView
+        android:id="@+id/detailed_img_star4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:src="@drawable/small_star_default"
+        app:layout_constraintStart_toEndOf="@+id/detailed_img_star3"
+        app:layout_constraintTop_toTopOf="@+id/detailed_img_star3" />
+
+    <ImageView
+        android:id="@+id/detailed_img_star1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/small"
+        tools:src="@drawable/small_star_default"
+        app:layout_constraintStart_toStartOf="@+id/view"
+        app:layout_constraintTop_toBottomOf="@+id/view" />
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="0dp"
+        android:layout_height="2dp"
+        android:layout_marginTop="@dimen/small"
+        android:background="@color/light_grey"
+        app:layout_constraintEnd_toEndOf="@+id/detailed_header_tv_available"
+        app:layout_constraintStart_toStartOf="@+id/detailed_header_tv_available"
+        app:layout_constraintTop_toBottomOf="@+id/detailed_header_tv_available" />
+
+    <FrameLayout
+        android:id="@+id/view_pager_holder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <ImageView
+            android:id="@+id/detailed_img_heart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|end"
+            android:paddingTop="@dimen/small"
+            android:paddingEnd="@dimen/small"
+            tools:src="@drawable/heart_default"
+            android:translationZ="100dp" />
+
+        <ImageView
+            android:id="@+id/detailed_img_question"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start|bottom"
+            android:paddingStart="@dimen/small"
+            android:paddingBottom="@dimen/extra_large"
+            android:src="@drawable/question_default"
+            android:translationZ="100dp" />
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/detailed_vp_image"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/medium"
+            android:background="@color/light_pink"
+            android:overScrollMode="never"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/detailed_vp_tab"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:background="@android:color/transparent"
+            app:layout_constraintEnd_toEndOf="@+id/product_vp_image"
+            app:layout_constraintStart_toStartOf="@+id/product_vp_image"
+            app:layout_constraintTop_toBottomOf="@id/product_vp_image"
+            app:tabBackground="@drawable/tab_selector"
+            app:tabGravity="center"
+            app:tabIndicatorHeight="0dp"
+            app:tabPaddingEnd="0dp" />
+
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/detailed_header_tv_tittle"
+        style="@style/TextMedium16"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="A`PIEU"
+        android:textColor="@color/grey"
+        app:layout_constraintEnd_toEndOf="@+id/view_pager_holder"
+        app:layout_constraintStart_toStartOf="@+id/view_pager_holder"
+        app:layout_constraintTop_toBottomOf="@+id/view_pager_holder" />
+
+    <TextView
+        android:id="@+id/detailed_header_tv_subtitle"
+        style="@style/TextMedium20"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Пенка для умывания`A`PIEU` `DEEP CLEAN` 200 мл"
+        android:layout_marginTop="@dimen/small"
+        app:layout_constraintEnd_toEndOf="@+id/detailed_header_tv_tittle"
+        app:layout_constraintStart_toStartOf="@+id/detailed_header_tv_tittle"
+        app:layout_constraintTop_toBottomOf="@+id/detailed_header_tv_tittle" />
+
+    <TextView
+        android:id="@+id/detailed_header_tv_available"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Доступно для заказа 30 штук"
+        style="@style/TextRegular14"
+        android:textColor="@color/grey"
+        android:layout_marginTop="@dimen/small"
+        app:layout_constraintEnd_toEndOf="@+id/detailed_header_tv_subtitle"
+        app:layout_constraintStart_toStartOf="@+id/detailed_header_tv_subtitle"
+        app:layout_constraintTop_toBottomOf="@+id/detailed_header_tv_subtitle" />
+
+    <ImageView
+        android:id="@+id/detailed_img_star2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:src="@drawable/small_star_default"
+        app:layout_constraintBottom_toBottomOf="@+id/detailed_img_star1"
+        app:layout_constraintStart_toEndOf="@+id/detailed_img_star1"
+        app:layout_constraintTop_toTopOf="@+id/detailed_img_star1" />
+
+    <ImageView
+        android:id="@+id/detailed_img_star3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:src="@drawable/small_star_default"
+        app:layout_constraintBottom_toBottomOf="@+id/detailed_img_star2"
+        app:layout_constraintStart_toEndOf="@+id/detailed_img_star2"
+        app:layout_constraintTop_toTopOf="@+id/detailed_img_star2" />
+
+    <TextView
+        android:id="@+id/detailed_header_tv_feedback"
+        style="@style/TextRegular12"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="4.3 • 4 отзыва"
+        android:textColor="@color/grey"
+        android:gravity="center_vertical"
+        android:paddingStart="@dimen/small"
+        app:layout_constraintBottom_toBottomOf="@+id/detailed_img_star5"
+        app:layout_constraintEnd_toEndOf="@+id/view"
+        app:layout_constraintStart_toEndOf="@+id/detailed_img_star5"
+        app:layout_constraintTop_toTopOf="@+id/detailed_img_star5" />
+
+    <com.belkanoid.core.ui.customView.ObliqueStrikeTextView
+        android:id="@+id/detailed_header_tv_price"
+        style="@style/TextRegular12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="899 ₽"
+        android:gravity="center_vertical|center_horizontal"
+        android:textColor="@color/grey"
+        android:layout_marginStart="@dimen/small"
+        app:layout_constraintBottom_toBottomOf="@+id/detailed_header_tv_price_with_discount"
+        app:layout_constraintStart_toEndOf="@+id/detailed_header_tv_price_with_discount"
+        app:layout_constraintTop_toTopOf="@+id/detailed_header_tv_price_with_discount" />
+
+    <TextView
+        android:id="@+id/detailed_header_tv_price_with_discount"
+        style="@style/TextMedium24"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/medium"
+        android:text="549 ₽"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/detailed_img_star1"
+        app:layout_constraintTop_toBottomOf="@+id/detailed_img_star1" />
+
+    <TextView
+        android:id="@+id/detailed_header_tv_discount"
+        style="@style/TextViewBackgrounded"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical|center_horizontal"
+        android:text="-39%"
+        android:paddingVertical="@dimen/extra_small"
+        android:layout_marginStart="@dimen/small"
+        app:layout_constraintBottom_toBottomOf="@+id/detailed_header_tv_price"
+        app:layout_constraintStart_toEndOf="@+id/detailed_header_tv_price"
+        app:layout_constraintTop_toTopOf="@+id/detailed_header_tv_price" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

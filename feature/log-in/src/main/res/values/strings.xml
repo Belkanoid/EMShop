@@ -1,0 +1,7 @@
+<resources>
+    <string name="login_enter">Войти</string>
+    <string name="login_loyalty_program_accept">Нажимая кнопку “Войти”, Вы принимаете\n <u>условия программы лояльности</u></string>
+    <string name="login_hint_name">Имя</string>
+    <string name="login_hint_surname">Фамилия</string>
+    <string name="login_hint_phone">Номер Телефона</string>
+</resources>

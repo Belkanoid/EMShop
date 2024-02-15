@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="sekizbit_switch_background">#F8F8F8</color>
+    <color name="sekizbit_switch_thumb">#ffffff</color>
+    <color name="sekizbit_switch_text_selected">#000000</color>
+    <color name="sekizbit_switch_text_unselected">#A0A1A3</color>
+</resources>

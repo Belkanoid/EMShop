@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Effective Mobile Shop</string>
+
+    <string name="login">Вход</string>
+    <string name="tab_home">Главная</string>
+    <string name="tab_catalog">Каталог</string>
+    <string name="tab_cart">Корзина</string>
+    <string name="tab_discount">Акции</string>
+    <string name="tab_profile">Профиль</string>
+    <string name="profile">Личный кабинет</string>
+    <string name="favorite">Избарнное</string>
+
+    <string name="tab_under_building">Эта вкладка в разработке</string>
+</resources>

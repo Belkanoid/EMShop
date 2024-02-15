@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/medium">
+
+    <TextView
+        style="@style/TextMedium16"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Описание"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/detailed_description_holder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/detailed_description_btn_brand"
+            style="@style/TextMedium14"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_background_medium"
+            android:drawableRight="@drawable/right_arrow_default"
+            android:gravity="center_vertical"
+            android:layout_marginTop="@dimen/medium"
+            android:padding="@dimen/medium"
+            android:text="Button"
+            app:layout_constraintEnd_toEndOf="@+id/detaield_tv_description"
+            app:layout_constraintStart_toStartOf="@+id/detaield_tv_description"
+            app:layout_constraintTop_toBottomOf="@+id/detaield_tv_description" />
+
+        <TextView
+            android:id="@+id/detailed_description_tv_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/TextRegular12"
+            android:textColor="@color/dark_grey"
+            android:layout_marginTop="@dimen/small"
+            android:text="Пенка для лица Глубокое очищение содержит минеральную воду и соду, способствует глубокому очищению пор от различных загрязнений, контролирует работу сальных желез, сужает поры. Обладает мягким антисептическим действием, не пересушивая кожу. Минеральная вода тонизирует и смягчает кожу."
+            app:layout_constraintEnd_toEndOf="@+id/detailed_btn_brand"
+            app:layout_constraintStart_toStartOf="@+id/detailed_btn_brand"
+            app:layout_constraintTop_toBottomOf="@+id/detailed_btn_brand" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/detailed_description_tv_toggle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/extra_small"
+        style="@style/TextMedium12"
+        android:textColor="@color/grey"
+        android:text="Скрыть" />
+
+
+</LinearLayout>

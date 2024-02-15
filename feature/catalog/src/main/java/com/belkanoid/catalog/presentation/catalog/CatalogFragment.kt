@@ -41,7 +41,7 @@ class CatalogFragment : Fragment(R.layout.fragment_catalog) {
         }
         binding.catalogRvTags.apply {
             adapter = tagAdapter
-            addItemDecoration(SpaceItemDecoration(0, 16, 0, 0))
+            addItemDecoration(SpaceItemDecoration(8, 8, 0, 0))
         }
         binding.catalogSpinnerSort.adapter = viewModel.spinnerAdapter(requireContext())
 

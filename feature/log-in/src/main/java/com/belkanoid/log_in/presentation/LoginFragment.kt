@@ -4,8 +4,9 @@ package com.belkanoid.log_in.presentation
 import android.content.Context
 import android.os.Bundle
 import android.text.InputType
+import android.util.Log
 import android.view.View
-import androidx.core.widget.doOnTextChanged
+import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
@@ -15,7 +16,6 @@ import com.belkanoid.log_in.R
 import com.belkanoid.log_in.databinding.FragmentLoginBinding
 import com.belkanoid.log_in.di.LoginComponentHolder
 import com.belkanoid.core.ui.NumberTextWatcher
-import com.belkanoid.log_in.presentation.state.LoginScreenState
 import com.belkanoid.log_in.presentation.viewModel.LoginViewModel
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
@@ -40,7 +40,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         initializeErrorIconOnClick()
         initializeOnTextChanged()
         initializeInputLayouts()
-        observeState()
+        observeUserInputs()
 
         binding.button.setOnClickListener {
             viewModel.saveUser(
@@ -52,38 +52,28 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
     }
 
     private fun initializeForceFocusOnEndIcon() {
-        binding.tvNameInputLayout.loginEditText.setOnFocusChangeListener { v, hasFocus ->
+        binding.tvNameInputLayout.loginEditText.setOnFocusChangeListener { _, _ ->
             binding.tvNameInputLayout.loginInputLayout.isEndIconVisible = true
         }
-        binding.tvSurnameInputLayout.loginEditText.setOnFocusChangeListener { v, hasFocus ->
+        binding.tvSurnameInputLayout.loginEditText.setOnFocusChangeListener { _, _ ->
             binding.tvSurnameInputLayout.loginInputLayout.isEndIconVisible = true
         }
-        binding.tvPhoneInputLayout.loginEditText.setOnFocusChangeListener { v, hasFocus ->
+        binding.tvPhoneInputLayout.loginEditText.setOnFocusChangeListener { _, _ ->
             binding.tvPhoneInputLayout.loginInputLayout.isEndIconVisible = true
         }
     }
 
-    private fun observeState() {
-        viewModel.state.onEach { state ->
+    private fun observeUserInputs() {
+        with(binding) {
+            viewModel.fieldState.onEach { state ->
+                tvNameInputLayout.loginInputLayout.error = state.nameErrorMessage
+                tvSurnameInputLayout.loginInputLayout.error = state.surnameErrorMessage
+            }.launchIn(lifecycleScope)
 
-            when (state) {
-                LoginScreenState.Empty -> {
-                    binding.button.isEnabled = false
-                }
-                is LoginScreenState.NameField -> {
-                    binding.tvNameInputLayout.loginInputLayout.error = state.errorState
-                }
-                is LoginScreenState.SurnameField -> {
-                    binding.tvSurnameInputLayout.loginInputLayout.error = state.errorState
-                }
-                is LoginScreenState.PhoneField -> {
-                    binding.tvPhoneInputLayout.loginInputLayout.error = state.errorState
-                }
-                LoginScreenState.Success -> {
-                    binding.button.isEnabled = true
-                }
-            }
-        }.launchIn(lifecycleScope)
+            viewModel.isAllFieldsValid.onEach {
+                button.isEnabled = it
+            }.launchIn(lifecycleScope)
+        }
     }
 
     private fun initializeInputLayouts() {
@@ -102,40 +92,26 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
 
     private fun initializeOnTextChanged() {
         with(binding) {
-            tvNameInputLayout.loginEditText.doOnTextChanged { text, _, _, _ ->
-                viewModel.validateName(text.toString())
+            tvNameInputLayout.loginEditText.addTextChangedListener {
+                viewModel.updateNameField(it.toString())
 
-                if (text.toString().isNotEmpty()) {
+                if (it.toString().isNotEmpty()) {
                     tvNameInputLayout.loginInputLayout.isHintEnabled = false
-                    binding.tvNameInputLayout.loginInputLayout.isEndIconVisible = true
-                } else {
-                    viewModel.validateName("")
-//                    binding.tvNameInputLayout.loginInputLayout.isEndIconVisible = false
                 }
             }
-            tvSurnameInputLayout.loginEditText.doOnTextChanged { text, _, _, _ ->
-                viewModel.validateSurname(text.toString())
+            tvSurnameInputLayout.loginEditText.addTextChangedListener {
+                viewModel.updateSurnameField(it.toString())
 
-                if (text.toString().isNotEmpty()) {
+                if (it.toString().isNotEmpty()) {
                     tvSurnameInputLayout.loginInputLayout.isHintEnabled = false
-//                    binding.tvSurnameInputLayout.loginInputLayout.isEndIconVisible = true
-                } else {
-                    viewModel.validateSurname("")
-//                    binding.tvSurnameInputLayout.loginInputLayout.isEndIconVisible = false
-
                 }
             }
 
-            tvPhoneInputLayout.loginEditText.doOnTextChanged { text, _, _, _ ->
-                viewModel.validatePhone(text.toString())
+            tvPhoneInputLayout.loginEditText.addTextChangedListener {
+                viewModel.updatePhoneField(it.toString())
 
-                if (text.toString().isNotEmpty()) {
+                if (it.toString().isNotEmpty()) {
                     tvPhoneInputLayout.loginInputLayout.isHintEnabled = false
-//                    binding.tvPhoneInputLayout.loginInputLayout.isEndIconVisible = true
-                } else {
-                    viewModel.validatePhone("")
-//                    binding.tvPhoneInputLayout.loginInputLayout.isEndIconVisible = false
-
                 }
             }
         }
@@ -145,17 +121,17 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         with(binding) {
             tvNameInputLayout.loginInputLayout.setErrorIconOnClickListener {
                 tvNameInputLayout.loginEditText.text = null
-                viewModel.validateName("")
+                viewModel.updateNameField("")
             }
 
             tvSurnameInputLayout.loginInputLayout.setErrorIconOnClickListener {
                 tvSurnameInputLayout.loginEditText.text = null
-                viewModel.validateSurname("")
+                viewModel.updateSurnameField("")
             }
 
             tvPhoneInputLayout.loginInputLayout.setErrorIconOnClickListener {
                 tvPhoneInputLayout.loginEditText.text = null
-                viewModel.validatePhone("")
+                viewModel.updatePhoneField("")
             }
         }
 
